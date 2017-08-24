@@ -53,6 +53,10 @@ def do_swap(stack):
     stack.insert(0, stack.pop(1))
     return stack
 
+def do_duplicate(stack):
+    stack.insert(0, stack[0])
+    return stack
+
 def do_help(stack):
     for k,v in FUNCTIONS.iteritems():
         print(" {}   : {}".format(k,v["description"]))
@@ -64,23 +68,25 @@ ALIAS = {
     'q': 'exit',
     's': 'swap',
     'h': 'help',
-    'tva': 'vat'
+    'tva': 'vat',
+    'dup': 'duplicate'
 }
 
 FUNCTIONS = {
-    '+': {"card": 2, "func": do_plus, "description": "add the last two numbers of the list"},
-    '-': {"card": 2, "func": do_minus, "description": "substract the last two numbers of the list"},
-    '*': {"card": 2, "func": do_multi, "description": "multiply the last two numbers of the list"},
-    '/': {"card": 2, "func": do_divi, "description": "divise the last two numbers of the list"},
+    '+': {"card": 2, "func": do_plus, "description": "add the first two numbers of the list"},
+    '-': {"card": 2, "func": do_minus, "description": "substract the first two numbers of the list"},
+    '*': {"card": 2, "func": do_multi, "description": "multiply the first two numbers of the list"},
+    '/': {"card": 2, "func": do_divi, "description": "divise the first two numbers of the list"},
     '**': {"card": 2, "func": do_power, "description": "power tool"},
     '%': {"card": 2, "func": do_modulo, "description": "modulo tool"},
     'clear': {"card": 0, "func": do_clear, "description": "clear the list"},
     'sum': {"card": 2, "func": do_sum, "description": "add all the numbers of the list"},
     'exit': {"card": 0, "func": do_exit, "description": "exit the calculator"},
-    'swap': {"card": 2, "func": do_swap, "description": "swap the last two numbers of the list"},
-    'drop': {"card": 1, "func": do_drop, "description": "drop the last number of the list"},
+    'swap': {"card": 2, "func": do_swap, "description": "swap the first two numbers of the list"},
+    'drop': {"card": 1, "func": do_drop, "description": "drop the first number of the list"},
     'help': {"card": 0, "func": do_help, "description": "print the 'help' informations"},
-    'vat': {"card": 1, "func": do_tva, "description": "calculate the VAT of the last number of the list"}
+    'vat': {"card": 1, "func": do_tva, "description": "calculate the VAT of the first number of the list"},
+    'duplicate': {"card": 1, "func": do_duplicate, "description": "duplicate the first number of the list"}
 }
 
 def rpn_loop():
