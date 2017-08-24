@@ -58,6 +58,14 @@ def do_help(stack):
         print(" {}   : {}".format(k,v["description"]))
     return stack
 
+ALIAS = {
+    'c': 'clear',
+    'd': 'drop',
+    'q': 'exit',
+    's': 'swap',
+    'h': 'help',
+    'tva': 'vat'
+}
 
 FUNCTIONS = {
     '+': {"card": 2, "func": do_plus, "description": "add the last two numbers of the list"},
@@ -72,7 +80,7 @@ FUNCTIONS = {
     'swap': {"card": 2, "func": do_swap, "description": "swap the last two numbers of the list"},
     'drop': {"card": 1, "func": do_drop, "description": "drop the last number of the list"},
     'help': {"card": 0, "func": do_help, "description": "print the 'help' informations"},
-    'tva': {"card": 1, "func": do_tva, "description": "calculate the tva of the last number of the list"}
+    'vat': {"card": 1, "func": do_tva, "description": "calculate the VAT of the last number of the list"}
 }
 
 def rpn_loop():
@@ -80,6 +88,10 @@ def rpn_loop():
 
     while True:
         a = raw_input()
+
+        if a in ALIAS:
+            a = ALIAS[a]
+
         try:
             l.insert(0, get_number(a))
         except:
