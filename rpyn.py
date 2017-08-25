@@ -43,7 +43,10 @@ def do_modulo(stack):
     return stack
 
 def do_squareroot(stack):
-    stack.insert(0, math.sqrt(stack.pop(0)))
+    if stack[0] < 0:
+        print("we do not support complex numbers")
+    else:
+        stack.insert(0, math.sqrt(stack.pop(0)))
     return stack
 
 def do_divi(stack):
