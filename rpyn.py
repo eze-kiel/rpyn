@@ -102,7 +102,7 @@ def rpn_loop():
             l.insert(0, get_number(a))
         except:
             if not a in FUNCTIONS:
-                print("Unknown function")
+                print("unknown function")
                 continue
 
             if len(l) >= FUNCTIONS[a]["card"]:
