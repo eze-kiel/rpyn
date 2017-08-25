@@ -1,6 +1,6 @@
 # !/usr/bin/env python3
 
-import operator, sys
+import operator, sys, math
 
 def get_number(num):
     return float(num)
@@ -42,6 +42,10 @@ def do_modulo(stack):
     stack.insert(0, stack.pop(0) % stack.pop(0))
     return stack
 
+def do_squareroot(stack):
+    stack.insert(0, math.sqrt(stack.pop(0)))
+    return stack
+
 def do_divi(stack):
     if stack[1] == 0:
         print("impossible")
@@ -69,7 +73,8 @@ ALIAS = {
     's': 'swap',
     'h': 'help',
     'tva': 'vat',
-    'dup': 'duplicate'
+    'dup': 'duplicate',
+    'sqrt': 'squareroot'
 }
 
 FUNCTIONS = {
@@ -86,7 +91,8 @@ FUNCTIONS = {
     'drop': {"card": 1, "func": do_drop, "description": "drop the first number of the list"},
     'help': {"card": 0, "func": do_help, "description": "print the 'help' informations"},
     'vat': {"card": 1, "func": do_tva, "description": "calculate the VAT of the first number of the list"},
-    'duplicate': {"card": 1, "func": do_duplicate, "description": "duplicate the first number of the list"}
+    'duplicate': {"card": 1, "func": do_duplicate, "description": "duplicate the first number of the list"},
+    'squareroot': {"card": 1, "func": do_squareroot, "description": "does the squareroot of the first number of the list"}
 }
 
 def rpn_loop():
