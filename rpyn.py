@@ -93,7 +93,7 @@ FUNCTIONS = {
     'swap': {"card": 2, "func": do_swap, "description": "swap the first two numbers of the list"},
     'drop': {"card": 1, "func": do_drop, "description": "drop the first number of the list"},
     'help': {"card": 0, "func": do_help, "description": "print the 'help' informations"},
-    'vat': {"card": 1, "func": do_tva, "description": "calculate the VAT of the first number of the list"},
+    'vat': {"card": 1, "func": do_tva, "description": "calculate the VAT of the first number of the list (20%)"},
     'duplicate': {"card": 1, "func": do_duplicate, "description": "duplicate the first number of the list"},
     'squareroot': {"card": 1, "func": do_squareroot, "description": "does the squareroot of the first number of the list"}
 }
