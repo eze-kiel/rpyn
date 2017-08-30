@@ -123,5 +123,6 @@ def rpn_loop():
 
 if __name__ == '__main__':
     print("**/RPyN\**")
+    print("Welcome user ! Type 'help' for more informations")
     print("")
     rpn_loop()
